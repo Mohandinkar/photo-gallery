@@ -14,7 +14,6 @@ const SearchBar = ({ search, onSearchChange }) => {
         <path d="m20 20-4-4" />
       </svg>
 
-      {/* Search Input */}
       <input
         type="text"
         placeholder="Search by author name..."

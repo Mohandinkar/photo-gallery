@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 const PhotoCard = ({ photo, isFavourite, onToggleFavourite }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Close popup using Escape key
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
@@ -20,10 +19,8 @@ const PhotoCard = ({ photo, isFavourite, onToggleFavourite }) => {
 
   return (
     <>
-      {/* Photo Card */}
       <div className="group overflow-hidden rounded-2xl scroll-animate">
 
-        {/* Image with hover tilt */}
         <div
           className="relative overflow-hidden rounded-2xl cursor-zoom-in
           transition-all duration-500 ease-out
@@ -39,7 +36,6 @@ const PhotoCard = ({ photo, isFavourite, onToggleFavourite }) => {
             className="w-full h-72 object-cover rounded-2xl"
           />
 
-          {/* Favourite Button */}
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -69,7 +65,6 @@ const PhotoCard = ({ photo, isFavourite, onToggleFavourite }) => {
           </button>
         </div>
 
-        {/* Photographer Name */}
         <div className="flex justify-between items-center px-2 py-3">
           <h3 className="font-medium truncate text-white transition-all duration-300 hover:text-[#C7B092] hover:translate-x-1">
             {photo.author}
@@ -81,7 +76,6 @@ const PhotoCard = ({ photo, isFavourite, onToggleFavourite }) => {
         </div>
       </div>
 
-      {/* Image Popup */}
       {isOpen && (
         <div
           onClick={() => setIsOpen(false)}
