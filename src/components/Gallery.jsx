@@ -10,6 +10,11 @@ const Gallery = () => {
 
   const [search, setSearch] = useState("");
 
+//   const [state, dispatch] = useReducer(
+//   reducerFunction,
+//   initialState
+// );
+
   const [favourites, dispatch] = useReducer(favouriteReducer, [], () => {
     try {
       const saved = localStorage.getItem("favourites");
@@ -18,6 +23,13 @@ const Gallery = () => {
       return [];
     }
   });
+
+  const handleFavourite = (photoId) => {
+    dispatch({
+      type: "TOGGLE_FAVOURITE",
+      payload: photoId,
+    });
+  };
 
   // Save favourites whenever they change
   useEffect(() => {
@@ -39,12 +51,6 @@ const Gallery = () => {
       });
   }, [photos, search, favourites]);
 
-  const handleFavourite = (photoId) => {
-    dispatch({
-      type: "TOGGLE_FAVOURITE",
-      payload: photoId,
-    });
-  };
 
   if (loading) {
     return (
